@@ -1,0 +1,58 @@
+body {
+    background-color: #000; /* Чорний фон */
+    color: #fff; /* Білий текст */
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    color: #FFD700; /* Жовтий текст для заголовку */
+    text-align: center;
+}
+
+form {
+    width: 50%;
+    margin: 0 auto;
+    padding: 20px; /* Встановлює рівні відступи з усіх боків */
+    box-sizing: border-box; /* Включає padding у загальну ширину форми */
+    border: 2px solid #FFD700;
+    border-radius: 10px;
+    background-color: #1a1a1a;
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #FFD700; /* Жовта рамка полів вводу */
+    border-radius: 5px;
+    background-color: #333; /* Темний фон полів вводу */
+    color: #fff;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+input[type="submit"],
+input[type="reset"] {
+    width: 49%;
+    padding: 10px;
+    background-color: #FFD700; /* Жовта кнопка */
+    border: none;
+    color: #000; /* Чорний текст на кнопці */
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+    background-color: #E5C100; /* Трохи темніший жовтий при наведенні */
+}

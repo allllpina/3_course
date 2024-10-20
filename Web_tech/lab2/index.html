@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма реєстрації</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Зареєструйтесь будь-ласка</h2>
+    
+    <form>
+        <p>Ваша стать: 
+            <input type="radio" name="gender" value="woman"> жінка 
+            <input type="radio" name="gender" value="man"> чоловік
+        </p>
+        
+        <p>Ваш вік:
+            <input type="radio" name="age" value="до 20"> до 20 років 
+            <input type="radio" name="age" value="після 20"> після 20 років
+        </p>
+
+        <p>Ваше прізвище: <input type="text" name="surname"></p>
+        <p>Ваше ім'я: <input type="text" name="name"></p>
+        <p>Логін: <input type="text" name="login"></p>
+        <p>Пароль: <input type="password" name="password"></p>
+        <p>Адрес: <input type="text" name="address"></p>
+
+        <p>Будь-ласка, запишіть сюди Ваше запитання:</p>
+        <textarea name="question" rows="5" cols="40"></textarea>
+
+        <p>Чи зацікавив Вас наш університет?</p>
+        <input type="checkbox" name="interest" value="так"> так<br>
+        <input type="checkbox" name="interest" value="ні"> ні<br>
+        <input type="checkbox" name="interest" value="хочу вступити"> хочу вступити<br>
+        <input type="checkbox" name="interest" value="немає спеціальності"> немає потрібної мені спеціальності<br>
+
+        <p><input type="reset" value="очистити форму"></p>
+        <p><input type="submit" value="Ok"></p>
+    </form>
+</body>
+</html>

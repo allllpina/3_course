@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Results Table</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Function Results</h1>
+        <div id="results"></div>
+    </div>
+    <script>
+        // Задані значення
+        const x_start = -1, x_end = 1, dx = 0.2;
+        const y_start = -2, y_end = 2, dy = 0.2;
+        const z = 1.32;
+
+        // Визначення функцій
+        function a(x, y, z, b) {
+            return (3 + Math.exp(y - x) + Math.sqrt(Math.pow(Math.abs(Math.pow(y, 2) + b), 0.3))) /
+                (1 + Math.pow(x, 2) * Math.abs(y - Math.pow(Math.tan(Math.pow(z, 2)), 2)));
+        }       
+
+
+        function bFunction(x, y, z) {
+            return y * Math.abs(Math.pow(Math.abs(z) / x, 0.3) + Math.pow(Math.tan(Math.pow(z, 2)), 2) * Math.pow((x + Math.pow(z, 2)) / (2 * x - 1.4), 1/3)) 
+                - z * Math.exp(Math.pow(x, 2) - y);
+        }
+
+
+        // Створення масивів значень
+        let x_values = [];
+        let y_values = [];
+
+        for (let x = x_start; x <= x_end; x += dx) {
+            x_values.push(parseFloat(x.toFixed(1)));
+        }
+
+        for (let y = y_start; y <= y_end; y += dy) {
+            y_values.push(parseFloat(y.toFixed(1)));
+        }
+
+        // Створення масивів для результатів
+        let a_values = [];
+        let b_values = [];
+
+        // Обчислення значень функцій
+        for (let y of y_values) {
+            let a_row = [];
+            let b_row = [];
+            for (let x of x_values) {
+                a_row.push(a(x, y, z, bFunction(x, y, z)));
+                b_row.push(bFunction(x, y, z));
+            }
+            a_values.push(a_row);
+            b_values.push(b_row);
+        }
+
+        // Створення таблиці
+        let tableHTML = '<table><tr><th>x</th><th>y</th><th>a</th><th>b</th></tr>';
+
+        for (let i = 0; i < y_values.length; i++) {
+            for (let j = 0; j < x_values.length; j++) {
+                tableHTML += `<tr>
+                                  <td>${x_values[j]}</td>
+                                  <td>${y_values[i]}</td>
+                                  <td>${a_values[i][j]}</td>
+                                  <td>${b_values[i][j]}</td>
+                               </tr>`;
+            }
+        }
+
+        tableHTML += '</table>';
+        document.getElementById('results').innerHTML = tableHTML;
+    </script>
+</body>
+</html>

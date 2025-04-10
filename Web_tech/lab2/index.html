@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Форма реєстрації</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        // Функція для очищення форми
+        function clearForm(event) {
+            event.preventDefault();
+            document.querySelector("form").reset();
+            document.getElementById("result").innerHTML = ""; // Очищуємо результат
+        }
+
+        // Функція для обробки подання форми
+        function submitForm(event) {
+            event.preventDefault();
+
+            // Отримуємо значення полів
+            const gender = document.querySelector('input[name="gender"]:checked')?.value || "не вказано";
+            const age = document.querySelector('input[name="age"]:checked')?.value || "не вказано";
+            const surname = document.querySelector('input[name="surname"]').value;
+            const name = document.querySelector('input[name="name"]').value;
+            const login = document.querySelector('input[name="login"]').value;
+            const password = document.querySelector('input[name="password"]').value;
+            const address = document.querySelector('input[name="address"]').value;
+            const question = document.querySelector('textarea[name="question"]').value;
+            const interests = Array.from(document.querySelectorAll('input[name="interest"]:checked')).map(el => el.value).join(", ") || "не вказано";
+
+            // Формуємо блок з результатами
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = `
+                <h3>Введені дані:</h3>
+                <p><strong>Стать:</strong> ${gender}</p>
+                <p><strong>Вік:</strong> ${age}</p>
+                <p><strong>Прізвище:</strong> ${surname}</p>
+                <p><strong>Ім'я:</strong> ${name}</p>
+                <p><strong>Логін:</strong> ${login}</p>
+                <p><strong>Пароль:</strong> ${password}</p>
+                <p><strong>Адреса:</strong> ${address}</p>
+                <p><strong>Ваше запитання:</strong> ${question}</p>
+                <p><strong>Зацікавленість університетом:</strong> ${interests}</p>
+            `;
+            resultDiv.classList.add("styled-result"); // Додаємо клас для стилізації результату
+        }
+
+        // Функції для динамічної стилізації документа
+        function changeBackgroundColor() {
+            const color = document.getElementById("colorPicker").value;
+            document.body.style.backgroundColor = color;
+        }
+
+        function changeBorderColor() {
+            const color = document.getElementById("colorPicker").value;
+            document.body.style.border = `5px solid ${color}`;
+            document.body.style.outline = `2px dotted ${color}`;
+        }
+
+        function changeListStyle() {
+            const list = document.getElementById("colorOptions");
+            list.style.listStyleType = "circle";
+            list.style.color = "cyan";
+        }
+
+        function changeMarginPadding() {
+            document.body.style.margin = "20px";
+            document.body.style.padding = "20px";
+        }
+
+        function changeTextStyle() {
+            document.body.style.color = "lightblue";
+            document.body.style.fontFamily = "Verdana, sans-serif";
+            document.body.style.fontSize = "16px";
+        }
+    </script>
+</head>
+<body>
+    <h2>Зареєструйтесь будь-ласка</h2>
+    
+    <form>
+        <p>Ваша стать: 
+            <input type="radio" name="gender" value="woman"> жінка 
+            <input type="radio" name="gender" value="man"> чоловік
+        </p>
+        
+        <p>Ваш вік:
+            <input type="radio" name="age" value="до 20"> до 20 років 
+            <input type="radio" name="age" value="після 20"> після 20 років
+        </p>
+
+        <p>Ваше прізвище: <input type="text" name="surname"></p>
+        <p>Ваше ім'я: <input type="text" name="name"></p>
+        <p>Логін: <input type="text" name="login"></p>
+        <p>Пароль: <input type="password" name="password"></p>
+        <p>Адрес: <input type="text" name="address"></p>
+
+        <p>Будь-ласка, запишіть сюди Ваше запитання:</p>
+        <textarea name="question" rows="5" cols="40"></textarea>
+
+        <p>Чи зацікавив Вас наш університет?</p>
+        <input type="checkbox" name="interest" value="так"> так<br>
+        <input type="checkbox" name="interest" value="ні"> ні<br>
+        <input type="checkbox" name="interest" value="хочу вступити"> хочу вступити<br>
+        <input type="checkbox" name="interest" value="немає спеціальності"> немає потрібної мені спеціальності<br>
+
+        <p><input type="reset" value="очистити форму" onclick="clearForm(event)"></p>
+        <p><input type="submit" value="Ok" onclick="submitForm(event)"></p>
+    </form>
+
+    <div id="result"></div>
+
+    <div class="controls">
+        <label for="colorPicker">Оберіть колір:</label>
+        <select id="colorPicker">
+            <option value="#FFD700">Жовтий</option>
+            <option value="#FF5733">Помаранчевий</option>
+            <option value="#33FF57">Зелений</option>
+            <option value="#3357FF">Синій</option>
+            <option value="#FF33A6">Рожевий</option>
+        </select>
+
+        <ul id="colorOptions">
+            <li>Жовтий</li>
+            <li>Помаранчевий</li>
+            <li>Зелений</li>
+            <li>Синій</li>
+            <li>Рожевий</li>
+        </ul>
+
+        <button onclick="changeBackgroundColor()">Змінити колір фону</button>
+        <button onclick="changeBorderColor()">Змінити межі та контур</button>
+        <button onclick="changeListStyle()">Змінити стиль списку</button>
+        <button onclick="changeMarginPadding()">Встановити поля</button>
+        <button onclick="changeTextStyle()">Змінити стиль тексту</button>
+    </div>
+</body>
+</html>

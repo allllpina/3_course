@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя родина</title>
+    <link rel="stylesheet" href="angularjs-1.6.9-dist/css/w3.css">
+    <script src="angularjs-1.6.9-dist/js/angular.min.js"></script> 
+    <script src="familyApp.js"></script> 
+    <style>
+               form input.ng-untouched,
+form select.ng-untouched {
+    box-shadow: inset 5px 0 0 orange;
+}
+        input.ng-not-empty {
+            background-color: #e6f7ff;
+        }
+        .table-index {
+            font-weight: bold;
+            color: #0077cc;
+        }
+    </style>
+</head>
+<body ng-app="familyApp" ng-controller="familyCtrl">
+    <div class="w3-container">
+        <h2>Моя родина</h2>
+        
+        <button class="w3-btn w3-blue w3-ripple" ng-click="sortBy('lastName')">Сортувати за прізвищем</button>
+        <br><br>
+        
+        <table class="w3-table w3-bordered w3-striped">
+            <tr>
+                <th>#</th>
+                <th>Edit</th>
+                <th>Ім'я</th>
+                <th>Прізвище</th>
+                <th>Вік</th>
+                <th>Стать</th>
+                <th>Роль у сім’ї</th>
+            </tr>
+            <tr ng-repeat="member in family | orderBy:sortColumn">
+                <td class="table-index">{{ $index + 1 }}</td>
+                <td>
+                    <button class="w3-btn w3-ripple" ng-click="editMember(member.id)">✏ Редагувати</button>
+                </td>
+                <td>{{ member.firstName }}</td>
+                <td>{{ member.lastName }}</td>
+                <td>{{ member.age }}</td>
+                <td>{{ member.gender }}</td>
+                <td>{{ member.role }}</td>
+                <td>{{ family | json}}</td>
+            </tr>
+        </table>
+        
+        <br>
+        <button class="w3-btn w3-green w3-ripple" ng-click="editMember('new')">➕ Додати нового члена</button>
+        
+        <form ng-hide="hideform">
+            <h3 ng-show="isNew">Додати нового члена сім'ї</h3>
+            <h3 ng-hide="isNew">Редагувати члена сім'ї</h3>
+            
+            <label>Ім'я:</label>
+            <input class="w3-input w3-border" type="text" ng-model="firstName">
+            
+            <label>Прізвище:</label>
+            <input class="w3-input w3-border" type="text" ng-model="lastName">
+            
+            <label>Вік:</label>
+            <input class="w3-input w3-border" type="number" ng-model="age">
+            
+            <label>Стать:</label>
+            <select class="w3-select w3-border" ng-model="gender">
+                <option value="Чоловіча">Чоловіча</option>
+                <option value="Жіноча">Жіноча</option>
+            </select>
+            
+            <label>Роль у сім'ї:</label>
+            <select class="w3-select w3-border" ng-model="role" ng-options="role for role in roles">
+                <option value="">Оберіть роль</option>
+            </select>
+            
+            <br>
+            <button class="w3-btn w3-green w3-ripple" ng-click="saveMember()">✔ Зберегти</button>
+        </form>
+
+        <h3>Оберіть члена сім'ї</h3>
+        <select class="w3-select w3-border" ng-model="selectedMember">
+            <option value="">Оберіть</option>
+            <option ng-repeat="member in family" value="{{member.firstName + ' ' + member.lastName}}">
+                {{member.firstName}} {{member.lastName}}
+            </option>
+        </select>
+    </div>
+</body>
+</html>

@@ -1,0 +1,96 @@
+body {
+    background-color: #f0f0f0;
+    color: #333;
+    font-family: 'Arial', sans-serif;
+}
+.header {
+    background-image: url('./img/header.jpg'); /* Додайте ваше зображення */
+    background-size: cover;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+.header h1 {
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.logo {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 20px; /* Відступ між логотипом і текстом */
+}
+
+.features {
+    margin: 50px auto;
+    width: 100%;
+    max-width: 1200px; /* Обмеження максимальної ширини для вирівнювання */
+}
+.feature-item {
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    transition: transform 0.2s;
+}
+.feature-item:hover {
+    transform: scale(1.05);
+}
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+#exotic_plants_img, #lecture_img, #event_img{
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.testimonials {
+    margin: 50px auto; /* Центрування секції */
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    max-width: 1200px; /* Обмеження максимальної ширини */
+    width: 100%; /* Забезпечення, що секція буде адаптуватися до екрану */
+}
+
+
+.testimonial-item {
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    transition: transform 0.2s;
+}
+
+.testimonial-item:hover {
+    transform: scale(1.05);
+}
+
+.testimonial-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.map-container {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 56.25%; /* Це співвідношення для 16:9 */
+    height: 0;
+}
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

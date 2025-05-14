@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/addExpenseFragment">
+
+    <fragment
+        android:id="@+id/addExpenseFragment"
+        android:name="com.example.lab4.AddExpenseFragment"
+        android:label="Add Expense">
+        <action
+            android:id="@+id/action_addExpenseFragment_to_historyFragment"
+            app:destination="@id/historyFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/historyFragment"
+        android:name="com.example.lab4.HistoryFragment"
+        android:label="History">
+        <argument
+            android:name="expenseAmount"
+            app:argType="float" />
+    </fragment>
+</navigation>

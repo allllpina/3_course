@@ -11,26 +11,20 @@ angular.module('familyApp', []).controller('familyCtrl', function ($scope) {
         { id: 9, firstName: 'Василь', lastName: 'Сидоренко', age: 50, gender: 'Чоловіча', role: 'Хрещений' },
         { id: 10, firstName: 'Ганна', lastName: 'Сидоренко', age: 48, gender: 'Жіноча', role: 'Хрещена' }
     ];
-    $scope.family2 = {
-        member1:{ id: 1, firstName: 'Олександр', lastName: 'Іваненко', age: 35, gender: 'Чоловіча', role: 'Батько' },
-        member2:{ id: 2, firstName: 'Марина', lastName: 'Іваненко', age: 32, gender: 'Жіноча', role: 'Мати' },
-        member3:{ id: 3, firstName: 'Артем', lastName: 'Іваненко', age: 10, gender: 'Чоловіча', role: 'Син' },
-        member4:{ id: 4, firstName: 'Олена', lastName: 'Іваненко', age: 8, gender: 'Жіноча', role: 'Донька' },
-        member5:{ id: 5, firstName: 'Богдан', lastName: 'Коваленко', age: 60, gender: 'Чоловіча', role: 'Дідусь' },
-        member6:{ id: 6, firstName: 'Людмила', lastName: 'Коваленко', age: 58, gender: 'Жіноча', role: 'Бабуся' },
-        member7:{ id: 7, firstName: 'Ігор', lastName: 'Петренко', age: 40, gender: 'Чоловіча', role: 'Дядько' },
-        member8:{ id: 8, firstName: 'Наталія', lastName: 'Петренко', age: 38, gender: 'Жіноча', role: 'Тітка' },
-        member9:{ id: 9, firstName: 'Василь', lastName: 'Сидоренко', age: 50, gender: 'Чоловіча', role: 'Хрещений' },
-        member10:{ id: 10, firstName: 'Ганна', lastName: 'Сидоренко', age: 48, gender: 'Жіноча', role: 'Хрещена' }
-    };
 
-    $scope.roles = ['Батько', 'Мати','Син','Донька','Дідусь','Бабуся','Дядько','Тітка','Хрещений', 'Хрещена']
-    
+    $scope.family2 = { /* залишилось без змін */ };
+    $scope.roles = ['Батько', 'Мати', 'Син', 'Донька', 'Дідусь', 'Бабуся', 'Дядько', 'Тітка', 'Хрещений', 'Хрещена'];
+
     $scope.hideform = true;
     $scope.sortColumn = '';
+    $scope.hints = {};
 
     $scope.sortBy = function (column) {
         $scope.sortColumn = column;
+    };
+
+    $scope.checkHint = function (field) {
+        $scope.hints[field] = !!$scope[field];
     };
 
     $scope.editMember = function (id) {
@@ -52,6 +46,9 @@ angular.module('familyApp', []).controller('familyCtrl', function ($scope) {
             $scope.role = member.role;
             $scope.currentIndex = $scope.family.indexOf(member);
         }
+
+        // Очистка підказок
+        $scope.hints = {};
     };
 
     $scope.saveMember = function () {
@@ -75,4 +72,11 @@ angular.module('familyApp', []).controller('familyCtrl', function ($scope) {
         }
         $scope.hideform = true;
     };
+
+    $scope.appVisible = true;
+
+    $scope.toggleApp = function () {
+        $scope.appVisible = !$scope.appVisible;
+    };
+
 });

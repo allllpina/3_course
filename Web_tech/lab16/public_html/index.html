@@ -114,7 +114,7 @@
       </div>
 
       <!-- Запитання -->
-      <div class="w3-margin-bottom">
+      <div class="w3-margin-bottom" ng-hide="!user.gender">
         <label>Ваше запитання:</label>
         <textarea class="w3-input" name="question" rows="3" ng-model="user.question" ng-maxlength="250"></textarea>
         <div class="w3-text-red" ng-show="registerForm.question.$error.maxlength">

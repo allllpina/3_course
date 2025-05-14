@@ -1,0 +1,18 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.Lab4" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Основні кольори для темної -->
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/secondaryColorDark</item>
+
+        <!-- Текст для темної -->
+        <item name="android:textColorPrimary">@color/textPrimaryDark</item>
+        <item name="android:textColorSecondary">@color/textSecondaryDark</item>
+        <item name="android:windowBackground">@color/backgroundDark</item>
+
+        <!-- Кастомні стилі -->
+        <item name="android:buttonStyle">@style/CustomButton</item>
+        <item name="android:editTextStyle">@style/CustomEditText</item>
+        <item name="android:textViewStyle">@style/CustomTextView</item>
+    </style>
+</resources>

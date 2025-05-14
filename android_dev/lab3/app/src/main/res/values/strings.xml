@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Книжкові Нотатки</string>
+    <string name="title_hint">Назва книги</string>
+    <string name="author_hint">Автор</string>
+    <string name="review_hint">Короткий відгук</string>
+    <string name="rating_label">Оцінка</string>
+    <string name="genre_label">Жанри:</string>
+    <string name="genre_fiction">Фікшн</string>
+    <string name="genre_science">Наука</string>
+    <string name="genre_biography">Біографія</string>
+    <string name="add_book">Додати книгу</string>
+    <string name="ok">ОК</string>
+    <string name="book_review">Відгук:</string>
+</resources>

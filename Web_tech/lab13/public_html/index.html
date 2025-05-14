@@ -83,13 +83,31 @@ form select.ng-untouched {
             <button class="w3-btn w3-green w3-ripple" ng-click="saveMember()">✔ Зберегти</button>
         </form>
 
-        <h3>Оберіть члена сім'ї</h3>
-        <select class="w3-select w3-border" ng-model="selectedMember">
+        <h3>Оберіть члена сім'ї (ng-repeat)</h3>
+        <select class="w3-select w3-border" ng-model="selectedMember1">
             <option value="">Оберіть</option>
-            <option ng-repeat="member in family" value="{{member.firstName + ' ' + member.lastName}}">
+            <option ng-repeat="member in family" ng-value="member">
                 {{member.firstName}} {{member.lastName}}
             </option>
         </select>
+        
+        <h3>Ви обрали:</h3>
+        <h2>
+          Ім'я: {{selectedMember1.firstName}}, 
+          Прізвище: {{selectedMember1.lastName}}, 
+          Вік: {{selectedMember1.age}}, 
+          Стать: {{selectedMember1.gender}}, 
+          Роль: {{selectedMember1.role}}
+        </h2>
+
+        <h3>Оберіть члена сім'ї (ng-options)</h3>
+        <select class="w3-select w3-border" ng-model="selectedMember2" ng-options="y.role for (x, y) in family2">
+            <option value="">Оберіть роль</option>
+        </select>
+
+        <h2>Ім'я: {{selectedMember2.firstName}} {{selectedMember2.lastName}}</h2>
+        <h3>Вік: {{selectedMember2.age}}</h3>
+        <h3>Стать: {{selectedMember2.gender}}</h3>
     </div>
 </body>
 </html>

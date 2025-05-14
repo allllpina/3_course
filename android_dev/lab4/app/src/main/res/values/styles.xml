@@ -1,0 +1,24 @@
+<resources>
+
+    <!-- Стиль для кнопки -->
+    <style name="CustomButton" parent="Widget.Material3.Button">
+        <item name="android:backgroundTint">@color/primaryColor</item>
+        <item name="android:textColor">@android:color/white</item>
+        <!-- Перевір, чи використовуєш підтримуваний атрибут --> <!-- Це має працювати, якщо використовуєш мінімум SDK 21 -->
+        <item name="android:padding">12dp</item>
+    </style>
+
+    <!-- Стиль для поля вводу -->
+    <style name="CustomEditText" parent="Widget.Material3.TextInputEditText.FilledBox">
+        <item name="android:backgroundTint">@color/secondaryColor</item>
+        <item name="android:textColor">@color/textPrimary</item>
+    </style>
+
+    <!-- Стиль для тексту -->
+    <style name="CustomTextView" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/textPrimary</item>
+    </style>
+
+</resources>

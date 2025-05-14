@@ -1,0 +1,109 @@
+/* Основні налаштування */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #1e1e1e;
+    color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #151515;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 4px solid #ffd700;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.8em;
+    color: #ffd700;
+    letter-spacing: 0.05em;
+}
+
+nav {
+    background-color: #151515;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    color: #f0f0f0;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 1.1em;
+    padding: 10px 15px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffd700;
+    border-bottom: 2px solid #ffd700;
+}
+
+#wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 60px;
+}
+
+section h2 {
+    font-size: 2em;
+    color: #ffd700;
+    border-bottom: 2px solid #ffd700;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+p, li {
+    line-height: 1.8;
+    font-size: 1.2em;
+}
+
+ul {
+    list-style-type: square;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+img {
+    max-width: 100%;
+    border: 4px solid #ffd700;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+footer {
+    background-color: #151515;
+    text-align: center;
+    padding: 20px;
+    color: #808080;
+    font-size: 0.9em;
+    border-top: 4px solid #ffd700;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Додаткові стилі для адаптивності */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+
+    nav a {
+        font-size: 1em;
+    }
+
+    section h2 {
+        font-size: 1.6em;
+    }
+}

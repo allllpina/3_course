@@ -6,8 +6,19 @@
   <title>Форма реєстрації</title>
   <link rel="stylesheet" href="angularjs-1.6.9-dist/css/w3.css"/>
   <script src="angularjs-1.6.9-dist/js/angular.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
   <script src="familyApp.js"></script>
   <style>
+  .w3-input {
+    transition: background-color 0.3s ease;
+  } 
+
+  .w3-input:focus {
+    background-color: #e3f2fd; /* світло-блакитний фон при фокусі */
+  }
+
+
     body {
       display: flex;
       flex-direction: column;
@@ -40,7 +51,7 @@
        ng-class="{'form-valid': registerForm.$valid, 'form-invalid': registerForm.$invalid}"
        style="max-width: 600px; width: 100%;">
 
-    <h2 class="w3-center">Зареєструйтесь будь ласка</h2>
+    <h2 class="w3-center animate__animated animate__bounceIn">Зареєструйтесь будь ласка</h2>
 
     <form name="registerForm" ng-submit="submitForm()" novalidate ng-model-options="{ updateOn: 'default' }">
 
@@ -114,7 +125,7 @@
       </div>
 
       <!-- Запитання -->
-      <div class="w3-margin-bottom">
+      <div class="w3-margin-bottom" ng-hide="!user.gender">
         <label>Ваше запитання:</label>
         <textarea class="w3-input" name="question" rows="3" ng-model="user.question" ng-maxlength="250"></textarea>
         <div class="w3-text-red" ng-show="registerForm.question.$error.maxlength">
@@ -137,25 +148,14 @@
       <!-- Кнопки -->
       <div class="w3-margin-top">
         <button type="button" class="w3-button w3-grey w3-margin-right" ng-click="resetForm()">Очистити</button>
-        <button type="submit" class="w3-button w3-blue" ng-disabled="registerForm.$invalid">Ok</button>
+        <button type="submit" class="w3-button w3-blue animate__animated animate__pulse" ng-disabled="registerForm.$invalid">Ok</button>
       </div>
 
     </form>
   </div>
 
   <!-- КАРТКИ з даними -->
-  <div class="w3-margin-top" ng-repeat="card in cards track by $index">
-    <div class="w3-container w3-card-4 w3-white w3-padding-large w3-round-large" style="max-width: 600px; width: 100%; margin-top: 20px;">
-      <h4 class="w3-text-blue">Інформація користувача #{{$index + 1}}</h4>
-      <p><strong>Стать:</strong> {{ card.gender === 'woman' ? 'Жінка' : 'Чоловік' }}</p>
-      <p><strong>Вік:</strong> {{ card.age }}</p>
-      <p><strong>Прізвище:</strong> {{ card.surname }}</p>
-      <p><strong>Ім’я:</strong> {{ card.name }}</p>
-      <p><strong>Логін:</strong> {{ card.login }}</p>
-      <p><strong>Адреса:</strong> {{ card.address || 'не вказано' }}</p>
-      <p><strong>Запитання:</strong> {{ card.question || 'не вказано' }}</p>
-      <p><strong>Зацікавленість:</strong> {{ card.interest }}</p>
-    </div>
+  <div class="w3-margin-top" ng-repeat="card in cards track by $index" ng-include="'card.html'">
   </div>
 
 </body>

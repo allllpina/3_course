@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Lab17</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="angularjs-1.6.9-dist/css/w3.css">
+        <link rel="icon" type="image/x-icon" href="./materials/ico.png">
+        <script src="angularjs-1.6.9-dist/js/angular.min.js"></script> 
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+        <script src="myUsers.js"></script> 
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body ng-app="myApp">
+        <header><h1>Welcome to LAB 17</h1></header>
+        <nav>
+            <a href="#!/">About me</a>
+            <a href="#!projects">Projects</a>
+            <a href="#!image">Image</a>
+            <a href="#!contact_me">Contact me</a>
+        </nav>
+            <div id="wrapper">
+            <ng-view></ng-view>
+        </div>
+
+
+    </body>  
+</html>

@@ -1,4 +1,4 @@
-var app = angular.module('familyApp', []);
+var app = angular.module('familyApp', ['ngAnimate']);
 
 app.controller('familyCtrl', function($scope) {
   $scope.user = {};
@@ -25,7 +25,6 @@ app.controller('familyCtrl', function($scope) {
         $scope.user = {};
         $scope.registerForm.$setPristine();
         $scope.registerForm.$setUntouched();
-        console.log($scope.cards)
       } else {
         alert("Помилка типів даних! Перевірте заповнені поля.");
       }

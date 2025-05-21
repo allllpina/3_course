@@ -6,18 +6,22 @@
   <title>Форма реєстрації</title>
   <link rel="stylesheet" href="angularjs-1.6.9-dist/css/w3.css"/>
   <script src="angularjs-1.6.9-dist/js/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+
+
 
   <script src="familyApp.js"></script>
   <style>
-  .w3-input {
-    transition: background-color 0.3s ease;
-  } 
+    .w3-input {
+      transition: background-color 0.3s ease;
+    } 
 
-  .w3-input:focus {
-    background-color: #e3f2fd; /* світло-блакитний фон при фокусі */
-  }
-
+    .w3-input:focus {
+      background-color: #e3f2fd; /* світло-блакитний фон при фокусі */
+    }
 
     body {
       display: flex;
@@ -42,6 +46,64 @@
     .w3-input.ng-valid.ng-touched {
       border-color: #2196F3 !important;
     }
+    
+    .question {
+      overflow: hidden;
+      transition: opacity 0.5s ease, max-height 0.5s ease;
+      max-height: 500px;
+      opacity: 1;
+    }
+
+    .question.ng-hide {
+      opacity: 0;
+      max-height: 0;
+    }
+
+    keyframes hideEmail {
+  from {
+    opacity: 1;
+    height: 200px;
+  }
+  to {
+    opacity: 0;
+    height: 0;
+  }
+}
+
+/* Анімація для показу */
+@keyframes showEmail {
+  from {
+    opacity: 0;
+    height: 0;
+  }
+  to {
+    opacity: 1;
+    height: 100px;
+  }
+}
+
+.email {
+  overflow: hidden;
+  height: 100px;
+}
+
+/* Під час приховування */
+.email.ng-hide-add,
+.email.ng-hide-remove {
+  display: block !important; /* ⚠️ override Angular’s default 'display: none' */
+}
+
+/* Анімація приховування */
+.email.ng-hide-add-active {
+  animation: hideEmail 0.5s forwards;
+}
+
+/* Анімація показу */
+.email.ng-hide-remove-active {
+  animation: showEmail 0.5s forwards;
+}
+
+
   </style>
 </head>
 <body ng-controller="familyCtrl">
@@ -108,7 +170,7 @@
       </div>
 
       <!-- Адреса -->
-      <div class="w3-margin-bottom">
+      <div class="w3-margin-bottom email" ng-hide="!user.age">
         <label>Електронна пошта:</label>
         <input class="w3-input"
                type="email"
@@ -125,7 +187,7 @@
       </div>
 
       <!-- Запитання -->
-      <div class="w3-margin-bottom" ng-hide="!user.gender">
+      <div class="w3-margin-bottom question" ng-hide="!user.gender">
         <label>Ваше запитання:</label>
         <textarea class="w3-input" name="question" rows="3" ng-model="user.question" ng-maxlength="250"></textarea>
         <div class="w3-text-red" ng-show="registerForm.question.$error.maxlength">
